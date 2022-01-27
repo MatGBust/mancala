@@ -22,3 +22,63 @@ header{
     left: 0;
     right: 0;
 }
+
+#board-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;   
+}
+
+#board{
+    width: 300px; 
+    height: 650px;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-gap: 5px;
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 10px solid black;
+}
+
+row-box{
+    display: block;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+}
+
+.row-pit{
+    display: grid;
+}
+
+game-hole{
+    display: inline-block;
+}
+
+.hole{
+    border: 2px solid black;
+    width: 100%;
+    max-width: 100px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    vertical-align: middle;
+    
+}
+
+.pit{
+    border: 2px solid black;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
