@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <title>Mancala</title>
-
+        <script src="game.js"></script>
         <link rel="stylesheet" href="./styles.css" />
     </head>
 
-    <body>
+    <body onload="updateBoard()">
         <div id="game">
             <header>
                 <div class="title">MANCALA</div>
@@ -17,7 +17,7 @@
                     <row-box>
                         <div class="row-pit">
                         <game-hole>
-                            <div class="pit">
+                            <div onclick="move(7)" id="7" class="pit">
                                 <p>P</p>
                             </div>
                         </game-hole>
@@ -26,26 +26,12 @@
                     <row-box>
                         <div class="row">
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(8)" id="8" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
                             <game-hole>
-                                <div class="hole">
-                                    <p>H</p>
-                                </div>
-                            </game-hole>
-                        </div>
-                    </row-box>
-                    <row-box>
-                        <div class="row">
-                            <game-hole>
-                                <div class="hole">
-                                    <p>H</p>
-                                </div>
-                            </game-hole>
-                            <game-hole>
-                                <div class="hole">
+                                <div onclick="move(6)" id="6" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
@@ -54,26 +40,12 @@
                     <row-box>
                         <div class="row">
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(9)" id="9" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
                             <game-hole>
-                                <div class="hole">
-                                    <p>H</p>
-                                </div>
-                            </game-hole>
-                        </div>
-                    </row-box>
-                    <row-box>
-                        <div class="row">
-                            <game-hole>
-                                <div class="hole">
-                                    <p>H</p>
-                                </div>
-                            </game-hole>
-                            <game-hole>
-                                <div class="hole">
+                                <div onclick="move(5)" id="5" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
@@ -82,12 +54,12 @@
                     <row-box>
                         <div class="row">
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(10)" id="10" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(4)" id="4" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
@@ -96,12 +68,40 @@
                     <row-box>
                         <div class="row">
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(11)" id="11" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
                             <game-hole>
-                                <div class="hole">
+                                <div onclick="move(3)" id="3" class="hole">
+                                    <p>H</p>
+                                </div>
+                            </game-hole>
+                        </div>
+                    </row-box>
+                    <row-box>
+                        <div class="row">
+                            <game-hole>
+                                <div onclick="move(12)" id="12" class="hole">
+                                    <p>H</p>
+                                </div>
+                            </game-hole>
+                            <game-hole>
+                                <div onclick="move(2)" id="2" class="hole">
+                                    <p>H</p>
+                                </div>
+                            </game-hole>
+                        </div>
+                    </row-box>
+                    <row-box>
+                        <div class="row">
+                            <game-hole>
+                                <div onclick="move(13)" id="13" class="hole">
+                                    <p>H</p>
+                                </div>
+                            </game-hole>
+                            <game-hole>
+                                <div onclick="move(1)" id="1" class="hole">
                                     <p>H</p>
                                 </div>
                             </game-hole>
@@ -111,7 +111,7 @@
                     <row-box>
                         <div class="row-pit">
                         <game-hole>
-                            <div class="pit">
+                            <div onclick="move(14)" id="14" class="pit">
                                 <p>P</p>
                             </div>
                         </game-hole>
