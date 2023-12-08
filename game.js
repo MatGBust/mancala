@@ -18,7 +18,7 @@ var board = {
 		marbleNum: 4,
 	},
     7: {
-		marbleNum: 4,
+		marbleNum: 0,
 	},
     8: {
 		marbleNum: 4,
@@ -39,41 +39,35 @@ var board = {
 		marbleNum: 4,
 	},
     14: {
-		marbleNum: 4,
+		marbleNum: 0,
 	},
 }
 
 var turnState = true; //true for p1, false for p2
 
-function updateBoard(){
-    for(i in board){
-        console.log((i.marbleNum).toString())
-        document.getElementById(`${i}`).innerHTML = `${i.marbleNum}`;
-    }
-}
-
 function changeTurn(){
     if(turnState){
         for(let i = 1; i <= 6; i++){
-            document.getElementById(`#${i}`).onclick = `move(${i})`; 
+            document.getElementById(`${i}`).onclick = function(){move(i)}; 
         }
         for(let i = 8; i <= 13; i++){
-            document.getElementById(`#${i}`).onclick = ``; 
+            document.getElementById(`${i}`).onclick = null; 
         }
     } else  {
         for(let i = 1; i <= 6; i++){
-            document.getElementById(`#${i}`).onclick = ``; 
+            document.getElementById(`${i}`).onclick = null; 
         }
         for(let i = 8; i <= 13; i++){
-            document.getElementById(`#${i}`).onclick = `move(${i})`; 
+            document.getElementById(`${i}`).onclick = function(){move(i)}; 
         }
     }
+    
 }
 
 function move(id){
-    marbles = board.id.marbleNum;
+    marbles = board[id].marbleNum;
     lastPos = (id + marbles)%14;
-    board.id.marbleNum = 0;
+    board[id].marbleNum = 0;
     for(let i = 0; i < marbles; i++){
         id++;
         if (id == 7 && turnState){
@@ -85,17 +79,25 @@ function move(id){
         if(id > 14){
             id = 1;
         }
-        board.id.marbleNum += 1;
+        board[id].marbleNum += 1;
         updateBoard();
-        setTimeout(() => {  console.log("World!"); }, 500);
+        //setTimeout(() => {  console.log("World!"); }, 500);
     }
+
     if(turnState && lastPos == 7){
         turnState = true;
     } else if(!(turnState) && lastPos == 0){
         turnState = false;
     } else{
         turnState = !(turnState);
-        changeTurn();
+        updateBoard();
     }
     
+}
+
+function updateBoard(){
+    changeTurn();
+    for(i in board){
+        document.getElementById(`${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`;
+    }
 }
