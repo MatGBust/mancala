@@ -9,14 +9,13 @@
 
     <body onload="updateBoard()">
         <div id="winScreen">
-            <div class="win-message" id="winMessage">P1 wins!</div>
-        <div class="scores" id="scores">
-            <div class="player-score" id="player1Score">P1 Score: <span id="score1">0</span></div>
-            <div class="player-score" id="player2Score">P2 Score: <span id="score2">0</span></div>
+            <div class="win-message" id="winMessage"> wins!</div>
+            <div class="scores" id="scores">
+                <div class = "player-score"><span id="score1">16</span> - <span id="score2">23</span></div>
+                <div class="player-display">P1            P2</div>
+            </div>
+            <button id="newGameBtn" onclick="newGame()">New Game</button>
         </div>
-        <button id="newGameBtn" onclick="startNewGame()">New Game</button>
-
-        </div>>
 
         </div>
         <!--css display normally flex-->
@@ -30,7 +29,7 @@
                         <!--top pit-->
                         <div class="row-pit">
                         <game-hole>
-                            <div id="7" class="pit">
+                            <div id="7" class="pit p1">
                                 <p>P</p>
                             </div>
                         </game-hole>
@@ -124,7 +123,7 @@
                     <row-box>
                         <div class="row-pit">
                         <game-hole>
-                            <div id="14" class="pit">
+                            <div id="14" class="pit p2">
                                 <p>P</p>
                             </div>
                         </game-hole>

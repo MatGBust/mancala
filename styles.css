@@ -3,13 +3,13 @@
     max-width: 600px;
     margin: 0 auto;
     height: 100%;
-    display: none;
+    display: flex;
     flex-direction: column;
 }
 
 #winScreen{
     margin: 0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -24,7 +24,7 @@
 
 
 .win-message {
-    font-size: 24px;
+    font-size: 12vw;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -34,12 +34,17 @@
 }
 
 .player-score {
-    font-size: 18px;
+    font-size: 7vw;
+    margin-bottom: 5px;
+}
+.player-display {
+    white-space: pre;
+    font-size: 3vw;
     margin-bottom: 5px;
 }
 
-button {
-    font-size: 16px;
+#newGameBtn {
+    font-size: 2vw;
     padding: 10px 20px;
     cursor: pointer;
 }
@@ -118,7 +123,7 @@ game-hole{
 }
 
 .pit{
-    border: 2px solid black;
+    border: 2px solid;
     border-radius: 20px;
     width: 100%;
     display: inline-flex;
@@ -127,5 +132,13 @@ game-hole{
     box-sizing: border-box;
     vertical-align: middle;
     opacity:1;
+}
+
+.p1{
+    border-color: rgb(255, 60, 40) ;
+}
+
+.p2{
+    border-color: rgb(39, 87, 246);   
 }
 
