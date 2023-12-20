@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Things to still add
-    -graphics for marbles
     -circle dot for animation to show marble movement, color depending on player
-    -marble count next to hole and not in hole
     -change fonts
     -adjust mode from capture to avalanche
     -save overall wins, p1 vs p2
@@ -19,12 +17,12 @@
 
 <!--replace with newGame function-->
 
-<body onload="updateBoard()">
+<body onload="newGame()">
     <div id="winScreen">
         <div class="win-message" id="winMessage"> wins!</div>
         <div class="scores" id="scores">
             <div class="player-score"><span id="score1">16</span> - <span id="score2">23</span></div>
-            <div class="player-display">P1 P2</div>
+            <div class="player-display">P1      P2</div>
         </div>
         <button id="newGameBtn" onclick="newGame()">New Game</button>
     </div>
@@ -48,14 +46,14 @@
                 </div>
 
                 <div onclick="move(8)" id="8" class="hole">
-                    <p>H</p>
+                    <img id = "img8" src="/assets/marbles/marble1.png" alt="">
                 </div>
 
                 <div class="blank"></div>
 
 
                 <div onclick="move(6)" id="6" class="hole">
-                    <p>H</p>
+                    <img id = "img6" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num6">
@@ -68,13 +66,13 @@
                 </div>
 
                 <div onclick="move(9)" id="9" class="hole">
-                    <p>H</p>
+                    <img id = "img9" src="" alt="">
                 </div>
 
                 <div class="blank"></div>
 
                 <div onclick="move(5)" id="5" class="hole">
-                    <p>H</p>
+                    <img id = "img5" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num5">
@@ -86,14 +84,14 @@
                 </div>
 
                 <div onclick="move(10)" id="10" class="hole">
-                    <p>H</p>
+                    <img id = "img10" src="" alt="">
                 </div>
 
                 <div class="blank"></div>
 
 
                 <div onclick="move(4)" id="4" class="hole">
-                    <p>H</p>
+                    <img id = "img4" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num4">
@@ -105,14 +103,14 @@
                 </div>
 
                 <div onclick="move(11)" id="11" class="hole">
-                    <p>H</p>
+                    <img id = "img11" src="" alt="">
                 </div>
 
                 <div class="blank"></div>
 
 
                 <div onclick="move(3)" id="3" class="hole">
-                    <p>H</p>
+                    <img id = "img3" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num3">
@@ -124,14 +122,14 @@
                 </div>
 
                 <div onclick="move(12)" id="12" class="hole">
-                    <p>H</p>
+                    <img id = "img12" src="" alt="">
                 </div>
 
                 <div class="blank"></div>
 
 
                 <div onclick="move(2)" id="2" class="hole">
-                    <p>H</p>
+                    <img id = "img2" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num2">
@@ -143,14 +141,14 @@
                 </div>
 
                 <div onclick="move(13)" id="13" class="hole">
-                    <p>H</p>
+                    <img id = "img13" src="" alt="">
                 </div>
 
                 <div class="blank"></div>
 
 
                 <div onclick="move(1)" id="1" class="hole">
-                    <p>H</p>
+                    <img id = "img1" src="" alt="">
                 </div>
 
                 <div class="numDisp" id="num1">

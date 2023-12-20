@@ -10,46 +10,46 @@ const drawColor = 'rgb(147,74, 150)';
 //board marbles for data
 var board = {
     1: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     2: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     3: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     4: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     5: {
-        marbleNum: 4,
+        marbleNum: 1,
     },
     6: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     7: {
-        marbleNum: 0,
+        marbleNum: 21,
     },
     8: {
-        marbleNum: 4,
+        marbleNum: 1,
     },
     9: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     10: {
-        marbleNum: 4,
+        marbleNum: 3,
     },
     11: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     12: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     13: {
-        marbleNum: 4,
+        marbleNum: 0,
     },
     14: {
-        marbleNum: 0,
+        marbleNum: 22,
     },
 }
 
@@ -91,6 +91,8 @@ function move(id) {
     var marbles = board[id].marbleNum;
     //emptying hole of id at start of turn
     board[id].marbleNum = 0;
+    //update hole graphic
+    updateGraphic(id);
     //index
     var i = 0;
     //disable board
@@ -118,6 +120,11 @@ function move(id) {
 
             //update gui 
             updateBoard();
+
+            //update hole graphic
+            if(id != 7 && id != 14){
+                updateGraphic(id);
+            }
 
             //increment index
             i++;
@@ -155,13 +162,108 @@ function move(id) {
 function updateBoard() {
     changeTurn(); //updates onclick for current player
     for (i in board) {
-        document.getElementById(`${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
+        
         if (i != 7 && i != 14) {
             document.getElementById(`num${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
+        } else{
+            document.getElementById(`${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
         }
         if (board[i].marbleNum == 0) {
             document.getElementById(`${i}`).onclick = null; //not clickable if there are no marbles
         }
+    }
+}
+
+function updateGraphic(id) {
+    var holeImg = document.getElementById(`img${id}`);
+    var amt = board[id].marbleNum;
+    var randomRot = Math.floor(Math.random()*4) * 90;
+
+    switch (amt) {
+        case 0:
+            holeImg.src = '/assets/marbles/marble0.png';
+            holeImg.alt = '0 marbles';
+            break;
+        case 1:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble1.png';
+            holeImg.alt = '1 marble';
+            break;
+        case 2:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble2.png';
+            holeImg.alt = '2 marbles';
+            break;
+        case 3:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble3.png';
+            holeImg.alt = '3 marbles';
+            break;
+        case 4:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble4.png';
+            holeImg.alt = '4 marbles';
+            break;
+        case 5:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble5.png';
+            holeImg.alt = '5 marbles';
+            break;
+        case 6: 
+        holeImg.style.transform = `rotate(${randomRot}deg)`;
+        holeImg.src = '/assets/marbles/marble6.png';
+            holeImg.alt = '6 marbles';
+            break;
+        case 7:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble7.png';
+            holeImg.alt = '7 marbles'; 
+            break;
+        case 8: 
+        holeImg.style.transform = `rotate(${randomRot}deg)`;
+        holeImg.src = '/assets/marbles/marble8.png';
+            holeImg.alt = '8 marbles';
+            break;
+        case 9: 
+        holeImg.style.transform = `rotate(${randomRot}deg)`;
+        holeImg.src = '/assets/marbles/marble9.png';
+            holeImg.alt = '9 marbles';
+            break;
+        case 10:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble10.png';
+            holeImg.alt = '10 marbles';
+            break;
+        case 11:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble11.png';
+            holeImg.alt = '11 marbles'; 
+            break;
+        case 12:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble12.png';
+            holeImg.alt = '12 marbles';
+            break;
+        case 13:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble13.png';
+            holeImg.alt = '13 marbles';
+            break;
+        case 14:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble14.png';
+            holeImg.alt = '14 marbles';
+            break;
+        case 15:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble15.png';
+            holeImg.alt = '15 marbles';
+            break;
+        default:
+            holeImg.style.transform = 'rotate(0deg)';
+            holeImg.src = '/assets/alot.png';
+            holeImg.alt = 'A lot of marbles';
+            break;
     }
 }
 
@@ -181,10 +283,14 @@ function checkCapture(id) {
         board[7].marbleNum += board[id].marbleNum + board[adjSpot].marbleNum;
         board[id].marbleNum = 0;
         board[adjSpot].marbleNum = 0;
+        updateGraphic(id);
+        updateGraphic(adjSpot);
     } else {
         board[14].marbleNum += board[id].marbleNum + board[adjSpot].marbleNum;
         board[id].marbleNum = 0;
         board[adjSpot].marbleNum = 0;
+        updateGraphic(id);
+        updateGraphic(adjSpot);
     }
     updateBoard();
 }
@@ -221,8 +327,27 @@ function checkWin() {
     gameScreen.style.display = 'none';
     winScreen.style.display = 'flex';
 
-    //checks if draw, else emptys column and gives marbles to other person
-    if (board[14].marbleNum == 24 || board[7].marbleNum == 24) {
+    //empties holes to calculate score
+    for (let i = 8; i <= 13; i++) {
+        board[14].marbleNum += board[i].marbleNum;
+        board[i].marbleNum = 0;
+    }
+    for (let i = 1; i <= 6; i++) {
+        board[7].marbleNum += board[i].marbleNum;
+        board[i].marbleNum = 0;
+    }
+
+    //sets win condition based on who has more marbles
+     if (board[7].marbleNum > 24) {
+        p1Win = true;
+        p2Win = false;
+    } else {
+        p1Win = false;
+        p2Win = true;
+    }
+
+    //checks if draw, then displays correct win message
+    if (board[14].marbleNum == 24 && board[7].marbleNum == 24) {
         //random turn
         turnState = Math.round(Math.random());
 
@@ -232,28 +357,6 @@ function checkWin() {
         score2.innerText = `${board[14].marbleNum}`;
         return;
     } else if (p1Win) {
-        for (let i = 8; i <= 13; i++) {
-            board[14].marbleNum += board[i].marbleNum;
-            board[i].marbleNum = 0;
-        }
-    } else {
-        for (let i = 1; i <= 6; i++) {
-            board[7].marbleNum += board[i].marbleNum;
-            board[i].marbleNum = 0;
-        }
-    }
-
-    //sets win condition based on who has more marbles
-    if (board[7].marbleNum > 24) {
-        p1Win = true;
-        p2Win = false;
-    } else {
-        p1Win = false;
-        p2Win = true;
-    }
-
-    //sets win screen based on winning player
-    if (p1Win) {
         turnState = false;
         winScreen.style.backgroundColor = p1WinColor;
         winMes.innerText = "P1 Wins!";
@@ -272,8 +375,11 @@ function newGame() {
     for (i in board) {
         if (i == 7 || i == 14) {
             board[i].marbleNum = 0;
+        } else{
+            board[i].marbleNum = 4;
+            updateGraphic(i);
         }
-        board[i].marbleNum = 4;
+        
     }
 
     updateBoard();
