@@ -99,30 +99,30 @@ function move(id) {
     function takeTurn() {
         if (i < marbles) {
             //skip first hole
-        id++;
-
-        //if reached p1 pit and its not p1 turn, then skip
-        if (id == 7 && !turnState) {
             id++;
-        }
-        //if reached p2 pit and its not p2 turn, then skip
-        if (id == 14 && turnState) {
-            id++;
-        }
-        //reset id if end of board
-        if (id > 14) {
-            id = 1;
-        }
-        //update marble for current id
-        board[id].marbleNum += 1;
 
-        //update gui 
-        updateBoard();
+            //if reached p1 pit and its not p1 turn, then skip
+            if (id == 7 && !turnState) {
+                id++;
+            }
+            //if reached p2 pit and its not p2 turn, then skip
+            if (id == 14 && turnState) {
+                id++;
+            }
+            //reset id if end of board
+            if (id > 14) {
+                id = 1;
+            }
+            //update marble for current id
+            board[id].marbleNum += 1;
 
-        //increment index
-        i++;
-        //delay code
-        setTimeout(takeTurn, delayMove);
+            //update gui 
+            updateBoard();
+
+            //increment index
+            i++;
+            //delay code
+            setTimeout(takeTurn, delayMove);
 
         } else {
             //enable board again
@@ -145,7 +145,7 @@ function move(id) {
             checkWin();
         }
     }
-   
+
     setTimeout(takeTurn(), delayMove);
 
 
@@ -156,6 +156,9 @@ function updateBoard() {
     changeTurn(); //updates onclick for current player
     for (i in board) {
         document.getElementById(`${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
+        if (i != 7 && i != 14) {
+            document.getElementById(`num${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
+        }
         if (board[i].marbleNum == 0) {
             document.getElementById(`${i}`).onclick = null; //not clickable if there are no marbles
         }
