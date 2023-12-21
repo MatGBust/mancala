@@ -9,16 +9,18 @@
 }
 
 .cursorBall{
-    display: none;
+    display:none;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    
     border-radius: 100%;
-    width:3%;
+    width:10%;
     aspect-ratio: 1;
-    background-color: red;
+    
     z-index: 1;
     /*handled in js
+    background-color: red;
+    top: 0px;
+    left: 0px;
     transition: transform 0.25s ease-in-out;
     transform: translate(0px,0px);
     */

@@ -179,11 +179,15 @@ function cursorMove(id){
 
     var ballPos = ball.getBoundingClientRect();
     var holePos = document.getElementById(`${id}`).getBoundingClientRect();
+    //this is the cordinates of board box
+    var offset = document.getElementById('board-box').getBoundingClientRect();
 
     //var ballX = ballPos.left + (ballPos.right-ballPos.left)/2;
     //var ballY = ballPos.top + (ballPos.bottom-ballPos.top)/2;
-    var holeX = holePos.left + (holePos.right-holePos.left)/2;
-    var holeY = holePos.top + (holePos.bottom-holePos.top)/2;;
+
+    //10 is because of border of border box
+    var holeX = holePos.left + (holePos.right-holePos.left)/2 - offset.left - 10;
+    var holeY = holePos.top + (holePos.bottom-holePos.top)/2 - offset.top - 10;
 
     //var xDiff = holeX - ballX;
     //var yDiff = holeY - ballY;
