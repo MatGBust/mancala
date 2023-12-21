@@ -1,5 +1,5 @@
-//delay for movement
-var delayMove = 250;
+//delay for movement, 1000 = 1 second
+var delayMove = 350;
 
 //background colors for win states
 const p1WinColor = 'rgb(255, 60, 40)';
@@ -97,6 +97,14 @@ function move(id) {
     var i = 0;
     //disable board
     boardEnabled = false;
+    //ball enable
+    var ball = document.getElementById("ball");
+    if(turnState){
+        ball.style.backgroundColor = `${p1WinColor}`;
+    } else{
+        ball.style.backgroundColor = `${p2WinColor}`;
+    }
+    ball.style.display = 'block';
 
     function takeTurn() {
         if (i < marbles) {
@@ -126,6 +134,9 @@ function move(id) {
                 updateGraphic(id);
             }
 
+            //cursor move
+            cursorMove(id);
+
             //increment index
             i++;
             //delay code
@@ -134,6 +145,10 @@ function move(id) {
         } else {
             //enable board again
             boardEnabled = true;
+
+            //disable ball
+            ball.style.display = 'none';
+
 
             //check capture
             checkCapture(id);
@@ -156,6 +171,31 @@ function move(id) {
     setTimeout(takeTurn(), delayMove);
 
 
+
+}
+
+function cursorMove(id){
+    var ball = document.getElementById("ball");
+
+    var ballPos = ball.getBoundingClientRect();
+    var holePos = document.getElementById(`${id}`).getBoundingClientRect();
+
+    //var ballX = ballPos.left + (ballPos.right-ballPos.left)/2;
+    //var ballY = ballPos.top + (ballPos.bottom-ballPos.top)/2;
+    var holeX = holePos.left + (holePos.right-holePos.left)/2;
+    var holeY = holePos.top + (holePos.bottom-holePos.top)/2;;
+
+    //var xDiff = holeX - ballX;
+    //var yDiff = holeY - ballY;
+
+
+
+    //ball.style.transform = `translate(${xDiff}px,${yDiff}px)`;
+    ball.style.left = `${holeX - (ballPos.right-ballPos.left)/2}px`;
+    ball.style.top = `${holeY - (ballPos.bottom-ballPos.top)/2}px`;
+    //ball.style.transform = 'translate(0px,0px)';
+
+    //commented out portions for potential smoother transitions
 
 }
 
@@ -386,9 +426,13 @@ function newGame() {
 
     var winScreen = document.getElementById("winScreen");
     var gameScreen = document.getElementById("game");
+    var ball = document.getElementById("ball");
 
     //switches screen to win screen
     gameScreen.style.display = 'flex';
     winScreen.style.display = 'none';
+
+    //set cursor transition
+    ball.style.transition = `transform ${delayMove/1000}s ease-in-out`;
 
 }

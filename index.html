@@ -6,6 +6,7 @@
     -adjust mode from capture to avalanche
     -save overall wins, p1 vs p2
     -potential online multiplayer? need to research
+    -captured notif
     -->
 
 <head>
@@ -18,6 +19,7 @@
 <!--replace with newGame function-->
 
 <body onload="newGame()">
+    <div id = "ball" class = "cursorBall"></div>
     <div id="winScreen">
         <div class="win-message" id="winMessage"> wins!</div>
         <div class="scores" id="scores">
@@ -32,9 +34,9 @@
             <div class="title">MANCALA</div>
         </header>
         <div id="board-box">
+            
+            
             <!--top pit-->
-
-
             <div id="7" class="pit p1">
                 <p>P</p>
             </div>

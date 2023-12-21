@@ -8,6 +8,22 @@
     align-items: center;
 }
 
+.cursorBall{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 100%;
+    width:3%;
+    aspect-ratio: 1;
+    background-color: red;
+    z-index: 1;
+    /*handled in js
+    transition: transform 0.25s ease-in-out;
+    transform: translate(0px,0px);
+    */
+}
+
 /*win screen styles */
 #winScreen {
     margin: 0;
@@ -71,6 +87,7 @@ header {
 }
 
 #board-box {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
