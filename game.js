@@ -229,86 +229,85 @@ function updateGraphic(id) {
     var holeImg = document.getElementById(`img${id}`);
     var amt = board[id].marbleNum;
     var randomRot = Math.floor(Math.random() * 4) * 90;
-    var prefix = 'assets/marbles/';
 
     switch (amt) {
         case 0:
-            holeImg.src = prefix + 'marble0.png';
+            holeImg.src = 'assets/marbles/marble0.png';
             holeImg.alt = '0 marbles';
             break;
         case 1:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble1.png';
+            holeImg.src = 'assets/marbles/marble1.png';
             holeImg.alt = '1 marble';
             break;
         case 2:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble2.png';
+            holeImg.src = 'assets/marbles/marble2.png';
             holeImg.alt = '2 marbles';
             break;
         case 3:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble3.png';
+            holeImg.src = 'assets/marbles/marble3.png';
             holeImg.alt = '3 marbles';
             break;
         case 4:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble4.png';
+            holeImg.src = 'assets/marbles/marble4.png';
             holeImg.alt = '4 marbles';
             break;
         case 5:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble5.png';
+            holeImg.src = 'assets/marbles/marble5.png';
             holeImg.alt = '5 marbles';
             break;
         case 6:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble6.png';
+            holeImg.src = 'assets/marbles/marble6.png';
             holeImg.alt = '6 marbles';
             break;
         case 7:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble7.png';
+            holeImg.src = 'assets/marbles/marble7.png';
             holeImg.alt = '7 marbles';
             break;
         case 8:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble8.png';
+            holeImg.src = 'assets/marbles/marble8.png';
             holeImg.alt = '8 marbles';
             break;
         case 9:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble9.png';
+            holeImg.src = 'assets/marbles/marble9.png';
             holeImg.alt = '9 marbles';
             break;
         case 10:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble10.png';
+            holeImg.src = 'assets/marbles/marble10.png';
             holeImg.alt = '10 marbles';
             break;
         case 11:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble11.png';
+            holeImg.src = 'assets/marbles/marble11.png';
             holeImg.alt = '11 marbles';
             break;
         case 12:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble12.png';
+            holeImg.src = 'assets/marbles/marble12.png';
             holeImg.alt = '12 marbles';
             break;
         case 13:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble13.png';
+            holeImg.src = 'assets/marbles/marble13.png';
             holeImg.alt = '13 marbles';
             break;
         case 14:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble14.png';
+            holeImg.src = 'assets/marbles/marble14.png';
             holeImg.alt = '14 marbles';
             break;
         case 15:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
-            holeImg.src = prefix + 'marble15.png';
+            holeImg.src = 'assets/marbles/marble15.png';
             holeImg.alt = '15 marbles';
             break;
         default:
