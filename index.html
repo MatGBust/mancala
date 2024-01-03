@@ -3,7 +3,6 @@
 <!--Things to still add
     -change fonts
     -adjust mode from capture to avalanche
-    -save overall wins, p1 vs p2
     -potential online multiplayer? need to research
     -captured notif
     -->
@@ -18,6 +17,11 @@
 <!--replace with newGame function-->
 
 <body onload="newGame()">
+
+    <div id="ovrScores">
+        <span id="play1Score"></span> - <span id="play2Score"></span>
+        <button id="clrScores" onclick="clearGame()">Clear</button>
+    </div>
     
     <div id="winScreen">
         <div class="win-message" id="winMessage"> wins!</div>

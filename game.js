@@ -6,6 +6,13 @@ const p1WinColor = 'rgb(255, 60, 40)';
 const p2WinColor = 'rgb(39, 87, 246)';
 const drawColor = 'rgb(147,74, 150)';
 
+var ovrScore = {
+    p1: 0,
+    p2: 0
+};
+
+//used for simpler accessing elements
+function l(id) { return document.getElementById(id) };
 
 //board marbles for data
 var board = {
@@ -99,9 +106,9 @@ function move(id) {
     boardEnabled = false;
     //ball enable
     var ball = document.getElementById("ball");
-    if(turnState){
+    if (turnState) {
         ball.style.backgroundColor = `${p1WinColor}`;
-    } else{
+    } else {
         ball.style.backgroundColor = `${p2WinColor}`;
     }
     ball.style.display = 'block';
@@ -130,7 +137,7 @@ function move(id) {
             updateBoard();
 
             //update hole graphic
-            if(id != 7 && id != 14){
+            if (id != 7 && id != 14) {
                 updateGraphic(id);
             }
 
@@ -174,7 +181,7 @@ function move(id) {
 
 }
 
-function cursorMove(id){
+function cursorMove(id) {
     var ball = document.getElementById("ball");
 
     var ballPos = ball.getBoundingClientRect();
@@ -186,8 +193,8 @@ function cursorMove(id){
     //var ballY = ballPos.top + (ballPos.bottom-ballPos.top)/2;
 
     //10 is because of border of border box
-    var holeX = holePos.left + (holePos.right-holePos.left)/2 - offset.left - 10;
-    var holeY = holePos.top + (holePos.bottom-holePos.top)/2 - offset.top - 10;
+    var holeX = holePos.left + (holePos.right - holePos.left) / 2 - offset.left - 10;
+    var holeY = holePos.top + (holePos.bottom - holePos.top) / 2 - offset.top - 10;
 
     //var xDiff = holeX - ballX;
     //var yDiff = holeY - ballY;
@@ -195,8 +202,8 @@ function cursorMove(id){
 
 
     //ball.style.transform = `translate(${xDiff}px,${yDiff}px)`;
-    ball.style.left = `${holeX - (ballPos.right-ballPos.left)/2}px`;
-    ball.style.top = `${holeY - (ballPos.bottom-ballPos.top)/2}px`;
+    ball.style.left = `${holeX - (ballPos.right - ballPos.left) / 2}px`;
+    ball.style.top = `${holeY - (ballPos.bottom - ballPos.top) / 2}px`;
     //ball.style.transform = 'translate(0px,0px)';
 
     //commented out portions for potential smoother transitions
@@ -206,10 +213,10 @@ function cursorMove(id){
 function updateBoard() {
     changeTurn(); //updates onclick for current player
     for (i in board) {
-        
+
         if (i != 7 && i != 14) {
             document.getElementById(`num${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
-        } else{
+        } else {
             document.getElementById(`${i}`).innerHTML = `<p>${board[i].marbleNum}</p>`; //updates text with marble count
         }
         if (board[i].marbleNum == 0) {
@@ -221,7 +228,7 @@ function updateBoard() {
 function updateGraphic(id) {
     var holeImg = document.getElementById(`img${id}`);
     var amt = board[id].marbleNum;
-    var randomRot = Math.floor(Math.random()*4) * 90;
+    var randomRot = Math.floor(Math.random() * 4) * 90;
 
     switch (amt) {
         case 0:
@@ -253,24 +260,24 @@ function updateGraphic(id) {
             holeImg.src = '/assets/marbles/marble5.png';
             holeImg.alt = '5 marbles';
             break;
-        case 6: 
-        holeImg.style.transform = `rotate(${randomRot}deg)`;
-        holeImg.src = '/assets/marbles/marble6.png';
+        case 6:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble6.png';
             holeImg.alt = '6 marbles';
             break;
         case 7:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
             holeImg.src = '/assets/marbles/marble7.png';
-            holeImg.alt = '7 marbles'; 
+            holeImg.alt = '7 marbles';
             break;
-        case 8: 
-        holeImg.style.transform = `rotate(${randomRot}deg)`;
-        holeImg.src = '/assets/marbles/marble8.png';
+        case 8:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble8.png';
             holeImg.alt = '8 marbles';
             break;
-        case 9: 
-        holeImg.style.transform = `rotate(${randomRot}deg)`;
-        holeImg.src = '/assets/marbles/marble9.png';
+        case 9:
+            holeImg.style.transform = `rotate(${randomRot}deg)`;
+            holeImg.src = '/assets/marbles/marble9.png';
             holeImg.alt = '9 marbles';
             break;
         case 10:
@@ -281,7 +288,7 @@ function updateGraphic(id) {
         case 11:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
             holeImg.src = '/assets/marbles/marble11.png';
-            holeImg.alt = '11 marbles'; 
+            holeImg.alt = '11 marbles';
             break;
         case 12:
             holeImg.style.transform = `rotate(${randomRot}deg)`;
@@ -382,7 +389,7 @@ function checkWin() {
     }
 
     //sets win condition based on who has more marbles
-     if (board[7].marbleNum > 24) {
+    if (board[7].marbleNum > 24) {
         p1Win = true;
         p2Win = false;
     } else {
@@ -406,24 +413,35 @@ function checkWin() {
         winMes.innerText = "P1 Wins!";
         score1.innerText = `${board[7].marbleNum}`;
         score2.innerText = `${board[14].marbleNum}`;
+        ovrScore.p1 += 1;
     } else {
         turnState = true;
         winScreen.style.backgroundColor = p2WinColor;
         winMes.innerText = "P2 Wins!";
         score1.innerText = `${board[7].marbleNum}`;
         score2.innerText = `${board[14].marbleNum}`;
+        ovrScore.p2 += 1;
     }
+
+    saveGame();
 }
 
 function newGame() {
+    //get saved wins
+    if (localStorage.getItem("game") != null) {
+        loadGame();
+    } else {
+        saveGame();
+    }
+
     for (i in board) {
         if (i == 7 || i == 14) {
             board[i].marbleNum = 0;
-        } else{
+        } else {
             board[i].marbleNum = 4;
             updateGraphic(i);
         }
-        
+
     }
 
     updateBoard();
@@ -437,6 +455,21 @@ function newGame() {
     winScreen.style.display = 'none';
 
     //set cursor transition
-    ball.style.transition = `transform ${delayMove/1000}s ease-in-out`;
+    ball.style.transition = `transform ${delayMove / 1000}s ease-in-out`;
+
+    //ovr stats
+    l("play1Score").innerText = ovrScore.p1;
+    l("play2Score").innerText = ovrScore.p2;
+
 
 }
+
+function saveGame() { localStorage.setItem("game", JSON.stringify(ovrScore)); }
+function loadGame() { ovrScore = JSON.parse(localStorage.getItem("game")); }
+function clearGame() {
+    ovrScore.p1 = 0; 
+    ovrScore.p2 = 0; 
+    localStorage.removeItem("game"); 
+    l("play1Score").innerText = ovrScore.p1;
+    l("play2Score").innerText = ovrScore.p2;
+};
