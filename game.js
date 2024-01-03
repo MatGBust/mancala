@@ -229,7 +229,7 @@ function updateGraphic(id) {
     var holeImg = document.getElementById(`img${id}`);
     var amt = board[id].marbleNum;
     var randomRot = Math.floor(Math.random() * 4) * 90;
-    var prefix = 'assets/marbles';
+    var prefix = 'assets/marbles/';
 
     switch (amt) {
         case 0:
