@@ -229,7 +229,7 @@ function updateGraphic(id) {
     var holeImg = document.getElementById(`img${id}`);
     var amt = board[id].marbleNum;
     var randomRot = Math.floor(Math.random() * 4) * 90;
-    var prefix = '/mancala/assets/marbles';
+    var prefix = 'assets/marbles';
 
     switch (amt) {
         case 0:
@@ -313,7 +313,7 @@ function updateGraphic(id) {
             break;
         default:
             holeImg.style.transform = 'rotate(0deg)';
-            holeImg.src = '/assets/alot.png';
+            holeImg.src = 'assets/alot.png';
             holeImg.alt = 'A lot of marbles';
             break;
     }
